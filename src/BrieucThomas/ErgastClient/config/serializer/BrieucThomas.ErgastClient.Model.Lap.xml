@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Lap" xml-root-name="Lap">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="number"
+                  type="integer"
+                  serialized-name="number"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="timing"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Timing&gt;"
+                  serialized-name="Timing"
+        >
+            <xml-list inline="true" entry-name="Timing"/>
+        </property>
+    </class>
+</serializer>

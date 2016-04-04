@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ergast.com/schemas/mrd-1.4.xsl"?>
+<MRData xmlns="http://ergast.com/mrd/1.4" series="f1" url="http://ergast.com/api/f1/circuits" limit="30" offset="0" total="2">
+    <CircuitTable>
+        <Circuit circuitId="monza" url="http://en.wikipedia.org/wiki/Autodromo_Nazionale_Monza">
+            <CircuitName>Autodromo Nazionale di Monza</CircuitName>
+            <Location lat="45.6156" long="9.28111">
+                <Locality>Monza</Locality>
+                <Country>Italy</Country>
+            </Location>
+        </Circuit>
+        <Circuit circuitId="zolder" url="http://en.wikipedia.org/wiki/Zolder">
+            <CircuitName>Zolder</CircuitName>
+            <Location alt="45.615" lat="50.9894" long="5.25694">
+                <Locality>Heusden-Zolder</Locality>
+                <Country>Belgium</Country>
+            </Location>
+        </Circuit>
+    </CircuitTable>
+</MRData>

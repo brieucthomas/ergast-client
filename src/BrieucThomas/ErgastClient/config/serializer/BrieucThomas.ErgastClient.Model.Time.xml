@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Time" xml-root-name="Time">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="value"
+                  type="string"
+                  serialized-name="value"
+                  xml-value="true"
+        >
+        </property>
+        <property name="millis"
+                  type="integer"
+                  serialized-name="millis"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

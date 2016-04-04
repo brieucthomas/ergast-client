@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ergast.com/schemas/mrd-1.4.xsl"?>
+<MRData xmlns="http://ergast.com/mrd/1.4" series="f1" url="http://ergast.com/api/f1/drivers" limit="30" offset="0" total="3">
+    <DriverTable driverId="senna">
+        <Driver driverId="senna" url="http://en.wikipedia.org/wiki/Ayrton_Senna">
+            <GivenName>Ayrton</GivenName>
+            <FamilyName>Senna</FamilyName>
+            <DateOfBirth>1960-03-21</DateOfBirth>
+            <Nationality>Brazilian</Nationality>
+        </Driver>
+        <Driver driverId="reed" url="http://en.wikipedia.org/wiki/Ray_Reed">
+            <GivenName>Ray</GivenName>
+            <FamilyName>Reed</FamilyName>
+            <DateOfBirth></DateOfBirth>
+            <Nationality>South African</Nationality>
+        </Driver>
+        <Driver driverId="hamilton" code="HAM" url="http://en.wikipedia.org/wiki/Lewis_Hamilton">
+            <PermanentNumber>44</PermanentNumber>
+            <GivenName>Lewis</GivenName>
+            <FamilyName>Hamilton</FamilyName>
+            <DateOfBirth>1985-01-07</DateOfBirth>
+            <Nationality>British</Nationality>
+        </Driver>
+    </DriverTable>
+</MRData>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Race" xml-root-name="Race">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="season"
+                  type="integer"
+                  serialized-name="season"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="round"
+                  type="integer"
+                  serialized-name="round"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="name"
+                  type="string"
+                  serialized-name="RaceName"
+        >
+        </property>
+        <property name="circuit"
+                  type="BrieucThomas\ErgastClient\Model\Circuit"
+                  serialized-name="Circuit"
+        >
+        </property>
+        <property name="date"
+                  type="DateTime&lt;'Y-m-d|'&gt;"
+                  serialized-name="Date"
+        >
+        </property>
+        <property name="time"
+                  type="DateTime&lt;'H:i:sT|'&gt;"
+                  serialized-name="Time"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="qualifying"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Qualifying&gt;"
+                  serialized-name="QualifyingList"
+        >
+            <xml-list entry-name="QualifyingResult" />
+        </property>
+        <property name="results"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Result&gt;"
+                  serialized-name="ResultsList"
+        >
+            <xml-list entry-name="Result" />
+        </property>
+        <property name="laps"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Lap&gt;"
+                  serialized-name="LapsList"
+        >
+            <xml-list entry-name="Lap" />
+        </property>
+        <property name="pitStops"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\PitStop&gt;"
+                  serialized-name="PitStopsList"
+        >
+            <xml-list entry-name="PitStop" />
+        </property>
+    </class>
+</serializer>
+

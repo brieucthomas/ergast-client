@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Constructor" xml-root-name="Constructor">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="id"
+                  type="string"
+                  serialized-name="constructorId"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="name"
+                  type="string"
+                  serialized-name="Name"
+        >
+        </property>
+        <property name="nationality"
+                  type="string"
+                  serialized-name="Nationality"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

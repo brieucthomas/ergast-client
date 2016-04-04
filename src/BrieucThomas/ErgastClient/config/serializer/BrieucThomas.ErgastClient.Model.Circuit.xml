@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Circuit" xml-root-name="Circuit">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="id"
+                  type="string"
+                  serialized-name="circuitId"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="name"
+                  type="string"
+                  serialized-name="CircuitName"
+        >
+        </property>
+        <property name="location"
+                  type="BrieucThomas\ErgastClient\Model\Location"
+                  serialized-name="Location"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

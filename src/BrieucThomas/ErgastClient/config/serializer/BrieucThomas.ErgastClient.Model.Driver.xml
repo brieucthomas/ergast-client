@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Driver" xml-root-name="Driver">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="id"
+                  type="string"
+                  serialized-name="driverId"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="code"
+                  type="string"
+                  serialized-name="code"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="number"
+                  type="integer"
+                  serialized-name="PermanentNumber"
+        >
+        </property>
+        <property name="givenName"
+                  type="string"
+                  serialized-name="GivenName"
+        >
+        </property>
+        <property name="familyName"
+                  type="string"
+                  serialized-name="FamilyName"
+        >
+        </property>
+        <property name="birthDate"
+                  type="string"
+                  serialized-name="DateOfBirth"
+        >
+        </property>
+        <property name="nationality"
+                  type="string"
+                  serialized-name="Nationality"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

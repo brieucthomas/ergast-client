@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\FinishingStatus" xml-root-name="Status">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="id"
+                  type="integer"
+                  serialized-name="statusId"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="name"
+                  type="string"
+                  xml-value="true"
+        >
+        </property>
+        <property name="count"
+                  type="integer"
+                  serialized-name="count"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

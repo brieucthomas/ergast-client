@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Location" xml-root-name="Location">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="locality"
+                  type="string"
+                  serialized-name="Locality"
+        >
+        </property>
+        <property name="country"
+                  type="string"
+                  serialized-name="Country"
+        >
+        </property>
+        <property name="latitude"
+                  type="double"
+                  serialized-name="lat"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="longitude"
+                  type="double"
+                  serialized-name="long"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="altitude"
+                  type="double"
+                  serialized-name="alt"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

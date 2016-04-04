@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\PitStop" xml-root-name="PitStop">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="driverId"
+                  type="string"
+                  serialized-name="driverId"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="stop"
+                  type="integer"
+                  serialized-name="stop"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="lap"
+                  type="integer"
+                  serialized-name="lap"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="time"
+                  type="DateTime&lt;'H:i:s'&gt;"
+                  serialized-name="time"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="duration"
+                  type="double"
+                  serialized-name="duration"
+                  xml-attribute="true"
+        >
+        </property>
+    </class>
+</serializer>

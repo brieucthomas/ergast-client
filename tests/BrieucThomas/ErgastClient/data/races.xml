@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="http://ergast.com/schemas/mrd-1.4.xsl"?>
+<MRData xmlns="http://ergast.com/mrd/1.4" series="f1" url="http://ergast.com/api/f1/2012/races" limit="30" offset="0" total="2">
+    <RaceTable season="2012">
+        <Race season="2012" round="1" url="http://en.wikipedia.org/wiki/2012_Australian_Grand_Prix">
+            <RaceName>Australian Grand Prix</RaceName>
+            <Circuit circuitId="albert_park" url="http://en.wikipedia.org/wiki/Melbourne_Grand_Prix_Circuit">
+                <CircuitName>Albert Park Grand Prix Circuit</CircuitName>
+                <Location lat="-37.8497" long="144.968">
+                    <Locality>Melbourne</Locality>
+                    <Country>Australia</Country>
+                </Location>
+            </Circuit>
+            <Date>2012-03-18</Date>
+            <Time>06:00:00Z</Time>
+        </Race>
+        <Race season="2012" round="2" url="http://en.wikipedia.org/wiki/2012_Brazilian_Grand_Prix">
+            <RaceName>Brazilian Grand Prix</RaceName>
+            <Circuit circuitId="interlagos" url="http://en.wikipedia.org/wiki/Aut%C3%B3dromo_Jos%C3%A9_Carlos_Pace">
+                <CircuitName>Autódromo José Carlos Pace</CircuitName>
+                <Location lat="-23.7036" long="-46.6997">
+                    <Locality>São Paulo</Locality>
+                    <Country>Brazil</Country>
+                </Location>
+            </Circuit>
+            <Date>2012-11-25</Date>
+        </Race>
+    </RaceTable>
+</MRData>

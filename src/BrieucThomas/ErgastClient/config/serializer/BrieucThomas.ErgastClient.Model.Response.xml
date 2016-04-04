@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="BrieucThomas\ErgastClient\Model\Response" xml-root-name="MRData">
+        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <property name="series"
+                  type="string"
+                  serialized-name="series"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="url"
+                  type="string"
+                  serialized-name="url"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="limit"
+                  type="integer"
+                  serialized-name="limit"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="offset"
+                  type="integer"
+                  serialized-name="offset"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="total"
+                  type="integer"
+                  serialized-name="total"
+                  xml-attribute="true"
+        >
+        </property>
+        <property name="seasons"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Season&gt;"
+                  serialized-name="SeasonTable"
+        >
+            <xml-list entry-name="Season" />
+        </property>
+        <property name="races"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Race&gt;"
+                  serialized-name="RaceTable"
+        >
+            <xml-list entry-name="Race" />
+        </property>
+        <property name="standings"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Standings&gt;"
+                  serialized-name="StandingsTable"
+        >
+            <xml-list entry-name="StandingsList" />
+        </property>
+        <property name="circuits"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Circuit&gt;"
+                  serialized-name="CircuitTable"
+        >
+            <xml-list entry-name="Circuit" />
+        </property>
+        <property name="drivers"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Driver&gt;"
+                  serialized-name="DriverTable"
+        >
+            <xml-list entry-name="Driver" />
+        </property>
+        <property name="constructors"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Constructor&gt;"
+                  serialized-name="ConstructorTable"
+        >
+            <xml-list entry-name="Constructor" />
+        </property>
+        <property name="finishingStatues"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\FinishingStatus&gt;"
+                  serialized-name="StatusTable"
+        >
+            <xml-list entry-name="Status" />
+        </property>
+    </class>
+</serializer>
+
