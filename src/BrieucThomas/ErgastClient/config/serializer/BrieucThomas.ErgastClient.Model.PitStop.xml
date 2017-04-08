@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <serializer>
     <class name="BrieucThomas\ErgastClient\Model\PitStop" xml-root-name="PitStop">
-        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
         <property name="driverId"
                   type="string"
                   serialized-name="driverId"

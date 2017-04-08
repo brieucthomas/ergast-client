@@ -40,11 +40,7 @@ class ErgastClient implements ErgastClientInterface
         $responseContent = $response->getBody()->getContents();
         $responseFormat = $this->getResponseFormat($response);
 
-        return $this->serializer->deserialize(
-            $responseContent,
-            'BrieucThomas\ErgastClient\Model\Response',
-            $responseFormat
-        );
+        return $this->serializer->deserialize($responseContent, Response::class, $responseFormat);
     }
 
     private function getResponseFormat(ResponseInterface $response) : string

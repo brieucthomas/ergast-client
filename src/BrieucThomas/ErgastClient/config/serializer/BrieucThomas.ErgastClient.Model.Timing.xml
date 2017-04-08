@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <serializer>
     <class name="BrieucThomas\ErgastClient\Model\Timing" xml-root-name="Timing">
-        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
         <property name="driverId"
                   type="string"
                   serialized-name="driverId"

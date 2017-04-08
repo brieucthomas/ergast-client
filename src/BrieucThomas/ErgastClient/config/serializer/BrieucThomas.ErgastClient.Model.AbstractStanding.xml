@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <serializer>
     <class name="BrieucThomas\ErgastClient\Model\AbstractStanding">
-        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
         <property name="position"
                   type="integer"
                   serialized-name="position"

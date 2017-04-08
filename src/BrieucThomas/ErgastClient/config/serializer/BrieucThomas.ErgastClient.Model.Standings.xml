@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <serializer>
     <class name="BrieucThomas\ErgastClient\Model\Standings" xml-root-name="StandingsList">
-        <xml-namespace prefix="atom" uri="http://www.w3.org/2005/Atom"/>
+        <xml-namespace uri="http://ergast.com/mrd/1.4"/>
         <property name="season"
                   type="integer"
                   serialized-name="season"

@@ -20,7 +20,7 @@ class BadResponseFormatException extends \Exception implements ExceptionInterfac
     {
         $message = sprintf(
             'Supported response formats are %s, got %s.',
-            join(' or ', $supportedFormats),
+            implode(' or ', $supportedFormats),
             $currentFormat
         );
 
