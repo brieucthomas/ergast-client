@@ -1,6 +1,6 @@
 {
     "name": "brieucthomas/ergast-client",
-    "license": "library",
+    "license": "MIT",
     "type": "project",
     "autoload": {
         "psr-4": {
