@@ -1,3 +1,12 @@
+build:
+    tests:
+        override:
+            -
+                command: 'vendor/bin/phpunit --coverage-clover=tmp/coverage.xml'
+                coverage:
+                    file: 'tmp/coverage.xml'
+                    format: 'clover'
+
 filter:
     path: [src/*]
     excluded_paths: [tests/*, vendor/*]
