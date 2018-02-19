@@ -1,5 +1,6 @@
 {
     "name": "brieucthomas/ergast-client",
+    "description": "PHP client for Ergast Developer API",
     "license": "MIT",
     "type": "project",
     "autoload": {
