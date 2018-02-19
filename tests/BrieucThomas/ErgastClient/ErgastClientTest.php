@@ -11,16 +11,16 @@ namespace Tests\BrieucThomas\ErgastClient;
 
 use BrieucThomas\ErgastClient\ErgastClient;
 use BrieucThomas\ErgastClient\Model\Response as ErgastResponse;
+use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Psr7\Response as HttpResponse;
+use JMS\Serializer\SerializerBuilder;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
-use GuzzleHttp\ClientInterface;
-use JMS\Serializer\SerializerBuilder;
 
 class ErgastClientTest extends \PHPUnit_Framework_TestCase
 {
     /**
-     * @expectedException BrieucThomas\ErgastClient\Exception\BadResponseFormatException
+     * @expectedException \BrieucThomas\ErgastClient\Exception\BadResponseFormatException
      * @expectedExceptionMessage Supported response formats are application/xml, got application/json.
      */
     public function testDeserializeUnsupportedFormatResponseThrowsException()
@@ -555,23 +555,23 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(7, $pitStop->getLap());
     }
 
-    private function createHttpResponseFromFile(string $fixture, string $contentType) : HttpResponse
+    private function createHttpResponseFromFile(string $fixture, string $contentType): HttpResponse
     {
-        $body = file_get_contents($this->getFixtureDir() . '/' . $fixture);
+        $body = file_get_contents($this->getFixtureDir().'/'.$fixture);
 
         return $this->createHttpResponse($body, $contentType);
     }
 
-    private function createHttpResponse(string $body, string $contentType, $status = 200) : HttpResponse
+    private function createHttpResponse(string $body, string $contentType, $status = 200): HttpResponse
     {
         return new HttpResponse($status, ['Content-Type' => $contentType], $body);
     }
 
-    private function deserializeHttpResponse(HttpResponse $httpResponse) : ErgastResponse
+    private function deserializeHttpResponse(HttpResponse $httpResponse): ErgastResponse
     {
         $httpClient = $this->createHttpClient($httpResponse);
         $serializer = SerializerBuilder::create()
-            ->addMetadataDir($this->getRootDir() . '/src/BrieucThomas/ErgastClient/config/serializer/')
+            ->addMetadataDir($this->getRootDir().'/src/BrieucThomas/ErgastClient/config/serializer/')
             ->build()
         ;
         $ergastClient = new ErgastClient($httpClient, $serializer);
@@ -580,7 +580,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         return $ergastClient->execute($httpRequest);
     }
 
-    private function createHttpClient(ResponseInterface $httpResponse) : ClientInterface
+    private function createHttpClient(ResponseInterface $httpResponse): ClientInterface
     {
         $httpClient = $this
             ->getMockBuilder('GuzzleHttp\ClientInterface')
@@ -595,7 +595,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         return $httpClient;
     }
 
-    private function createHttpRequest() : RequestInterface
+    private function createHttpRequest(): RequestInterface
     {
         return $this
             ->getMockBuilder('Psr\Http\Message\RequestInterface')
@@ -603,13 +603,13 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         ;
     }
 
-    private function getRootDir() : string
+    private function getRootDir(): string
     {
-        return __DIR__ . '/../../..';
+        return __DIR__.'/../../..';
     }
 
-    private function getFixtureDir() : string
+    private function getFixtureDir(): string
     {
-        return __DIR__ . '/data';
+        return __DIR__.'/data';
     }
 }
