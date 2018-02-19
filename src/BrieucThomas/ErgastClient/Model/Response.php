@@ -29,7 +29,7 @@ class Response
     private $constructors;
     private $finishingStatues;
 
-    public function getSeries() : string
+    public function getSeries(): string
     {
         return $this->series;
     }
@@ -39,57 +39,57 @@ class Response
      *
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }
 
-    public function getLimit() : int
+    public function getLimit(): int
     {
         return $this->limit;
     }
-    
-    public function getOffset() : int
+
+    public function getOffset(): int
     {
         return $this->offset;
     }
 
-    public function getTotal() : int
+    public function getTotal(): int
     {
         return $this->total;
     }
 
-    public function getSeasons() : ArrayCollection
+    public function getSeasons(): ArrayCollection
     {
         return $this->seasons;
     }
 
-    public function getRaces() : ArrayCollection
+    public function getRaces(): ArrayCollection
     {
         return $this->races;
     }
 
-    public function getStandings() : ArrayCollection
+    public function getStandings(): ArrayCollection
     {
         return $this->standings;
     }
 
-    public function getCircuits() : ArrayCollection
+    public function getCircuits(): ArrayCollection
     {
         return $this->circuits;
     }
 
-    public function getDrivers() : ArrayCollection
+    public function getDrivers(): ArrayCollection
     {
         return $this->drivers;
     }
 
-    public function getConstructors() : ArrayCollection
+    public function getConstructors(): ArrayCollection
     {
         return $this->constructors;
     }
 
-    public function getFinishingStatues() : ArrayCollection
+    public function getFinishingStatues(): ArrayCollection
     {
         return $this->finishingStatues;
     }

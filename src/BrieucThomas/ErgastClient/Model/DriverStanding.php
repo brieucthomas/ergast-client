@@ -17,12 +17,12 @@ class DriverStanding extends AbstractStanding
     private $driver;
     private $constructor;
 
-    public function getDriver() : Driver
+    public function getDriver(): Driver
     {
         return $this->driver;
     }
 
-    public function getConstructor() : Constructor
+    public function getConstructor(): Constructor
     {
         return $this->constructor;
     }

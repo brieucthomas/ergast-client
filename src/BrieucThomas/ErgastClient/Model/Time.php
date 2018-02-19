@@ -17,12 +17,12 @@ class Time
     private $value;
     private $millis;
 
-    public function getValue() : string
+    public function getValue(): string
     {
         return $this->value;
     }
 
-    public function getMillis() : int
+    public function getMillis(): int
     {
         return $this->millis;
     }

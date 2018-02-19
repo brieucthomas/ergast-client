@@ -19,12 +19,12 @@ class Lap
     private $number;
     private $timing;
 
-    public function getNumber() : int
+    public function getNumber(): int
     {
         return $this->number;
     }
 
-    public function getTiming() : ArrayCollection
+    public function getTiming(): ArrayCollection
     {
         return $this->timing;
     }

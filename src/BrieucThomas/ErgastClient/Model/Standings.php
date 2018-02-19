@@ -21,22 +21,22 @@ class Standings
     private $driverStandings;
     private $constructorStandings;
 
-    public function getSeason() : int
+    public function getSeason(): int
     {
         return $this->season;
     }
 
-    public function getRound() : int
+    public function getRound(): int
     {
         return $this->round;
     }
 
-    public function getDriverStandings() : ArrayCollection
+    public function getDriverStandings(): ArrayCollection
     {
         return $this->driverStandings;
     }
 
-    public function getConstructorStandings() : ArrayCollection
+    public function getConstructorStandings(): ArrayCollection
     {
         return $this->constructorStandings;
     }

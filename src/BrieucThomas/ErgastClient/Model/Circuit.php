@@ -24,7 +24,7 @@ class Circuit
      *
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -34,7 +34,7 @@ class Circuit
      *
      * @return string
      */
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -44,7 +44,7 @@ class Circuit
      *
      * @return Location
      */
-    public function getLocation() : Location
+    public function getLocation(): Location
     {
         return $this->location;
     }
@@ -54,7 +54,7 @@ class Circuit
      *
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }

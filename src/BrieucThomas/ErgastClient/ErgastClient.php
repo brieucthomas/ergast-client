@@ -12,7 +12,6 @@ namespace BrieucThomas\ErgastClient;
 use BrieucThomas\ErgastClient\Exception\BadResponseFormatException;
 use BrieucThomas\ErgastClient\Model\Response;
 use GuzzleHttp\ClientInterface;
-use JMS\Serializer\Annotation as Serializer;
 use JMS\Serializer\SerializerInterface;
 use Psr\Http\Message\RequestInterface;
 use Psr\Http\Message\ResponseInterface;
@@ -25,7 +24,7 @@ class ErgastClient implements ErgastClientInterface
     private $httpClient;
     private $serializer;
     private $supportedMimeTypes = [
-        'application/xml' => 'xml'
+        'application/xml' => 'xml',
     ];
 
     public function __construct(ClientInterface $httpClient, SerializerInterface $serializer)
@@ -34,7 +33,7 @@ class ErgastClient implements ErgastClientInterface
         $this->serializer = $serializer;
     }
 
-    public function execute(RequestInterface $request) : Response
+    public function execute(RequestInterface $request): Response
     {
         $response = $this->httpClient->send($request);
         $responseContent = $response->getBody()->getContents();
@@ -43,12 +42,12 @@ class ErgastClient implements ErgastClientInterface
         return $this->serializer->deserialize($responseContent, Response::class, $responseFormat);
     }
 
-    private function getResponseFormat(ResponseInterface $response) : string
+    private function getResponseFormat(ResponseInterface $response): string
     {
         $mimeType = $response->getHeaderLine('Content-Type');
 
-        if (false !== $pos = strpos($mimeType, ';')) {
-            $mimeType = substr($mimeType, 0, $pos);
+        if (false !== $pos = mb_strpos($mimeType, ';')) {
+            $mimeType = mb_substr($mimeType, 0, $pos);
         }
 
         if (isset($this->supportedMimeTypes[$mimeType])) {

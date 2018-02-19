@@ -17,5 +17,5 @@ use Psr\Http\Message\RequestInterface;
  */
 interface ErgastClientInterface
 {
-    public function execute(RequestInterface $request) : Response;
+    public function execute(RequestInterface $request): Response;
 }

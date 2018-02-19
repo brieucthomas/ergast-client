@@ -28,7 +28,7 @@ class Driver
      *
      * @return string
      */
-    public function getId() : string
+    public function getId(): string
     {
         return $this->id;
     }
@@ -53,7 +53,7 @@ class Driver
      *
      * @return int|null
      */
-    public function getNumber() 
+    public function getNumber()
     {
         return $this->number;
     }
@@ -63,7 +63,7 @@ class Driver
      *
      * @return string
      */
-    public function getGivenName() : string
+    public function getGivenName(): string
     {
         return $this->givenName;
     }
@@ -73,7 +73,7 @@ class Driver
      *
      * @return string
      */
-    public function getFamilyName() : string
+    public function getFamilyName(): string
     {
         return $this->familyName;
     }
@@ -97,7 +97,7 @@ class Driver
      *
      * @return string
      */
-    public function getNationality() : string
+    public function getNationality(): string
     {
         return $this->nationality;
     }
@@ -107,7 +107,7 @@ class Driver
      *
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }

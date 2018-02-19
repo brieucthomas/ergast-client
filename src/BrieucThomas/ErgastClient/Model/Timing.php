@@ -24,22 +24,22 @@ class Timing
      *
      * @return string
      */
-    public function getDriverId() : string
+    public function getDriverId(): string
     {
         return $this->driverId;
     }
 
-    public function getLap() : int
+    public function getLap(): int
     {
         return $this->lap;
     }
 
-    public function getPosition() : int
+    public function getPosition(): int
     {
         return $this->position;
     }
 
-    public function getTime() : string
+    public function getTime(): string
     {
         return $this->time;
     }

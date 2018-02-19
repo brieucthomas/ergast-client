@@ -22,7 +22,7 @@ class Season
      *
      * @return int
      */
-    public function getYear() : int
+    public function getYear(): int
     {
         return $this->year;
     }
@@ -32,7 +32,7 @@ class Season
      *
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }

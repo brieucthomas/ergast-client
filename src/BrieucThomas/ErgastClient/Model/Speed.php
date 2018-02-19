@@ -17,12 +17,12 @@ class Speed
     private $value;
     private $units;
 
-    public function getValue() : float
+    public function getValue(): float
     {
         return $this->value;
     }
 
-    public function getUnits() : string
+    public function getUnits(): string
     {
         return $this->units;
     }

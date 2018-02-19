@@ -19,11 +19,11 @@ use JMS\Serializer\SerializerBuilder;
  */
 class ErgastClientFactory
 {
-    public static function createErgastClient() : ErgastClient
+    public static function createErgastClient(): ErgastClient
     {
         $httpClient = new HttpClient();
         $serializer = SerializerBuilder::create()
-            ->addMetadataDir(__DIR__ . '/config/serializer/')
+            ->addMetadataDir(__DIR__.'/config/serializer/')
             ->build()
         ;
 

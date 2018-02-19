@@ -22,22 +22,22 @@ class Qualifying
     private $q2;
     private $q3;
 
-    public function getDriver() : Driver
+    public function getDriver(): Driver
     {
         return $this->driver;
     }
 
-    public function getConstructor() : Constructor
+    public function getConstructor(): Constructor
     {
         return $this->constructor;
     }
 
-    public function getNumber() : int
+    public function getNumber(): int
     {
         return $this->number;
     }
 
-    public function getPosition() : int
+    public function getPosition(): int
     {
         return $this->position;
     }

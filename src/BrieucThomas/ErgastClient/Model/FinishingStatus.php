@@ -18,17 +18,17 @@ class FinishingStatus
     private $name;
     private $count;
 
-    public function getId() : int
+    public function getId(): int
     {
         return $this->id;
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getCount() : int
+    public function getCount(): int
     {
         return $this->count;
     }

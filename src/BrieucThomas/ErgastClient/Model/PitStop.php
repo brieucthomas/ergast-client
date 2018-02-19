@@ -20,27 +20,27 @@ class PitStop
     private $time;
     private $duration;
 
-    public function getDriverId() : string
+    public function getDriverId(): string
     {
         return $this->driverId;
     }
 
-    public function getDuration() : float
+    public function getDuration(): float
     {
         return $this->duration;
     }
 
-    public function getLap() : int
+    public function getLap(): int
     {
         return $this->lap;
     }
 
-    public function getStop() : int
+    public function getStop(): int
     {
         return $this->stop;
     }
 
-    public function getTime() : \DateTime
+    public function getTime(): \DateTime
     {
         return $this->time;
     }

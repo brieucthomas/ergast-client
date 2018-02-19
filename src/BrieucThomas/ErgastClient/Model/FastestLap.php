@@ -19,22 +19,22 @@ class FastestLap
     private $time;
     private $averageSpeed;
 
-    public function getRank() : int
+    public function getRank(): int
     {
         return $this->rank;
     }
 
-    public function getLap() : int
+    public function getLap(): int
     {
         return $this->lap;
     }
 
-    public function getTime() : string
+    public function getTime(): string
     {
         return $this->time;
     }
 
-    public function getAverageSpeed() : Speed
+    public function getAverageSpeed(): Speed
     {
         return $this->averageSpeed;
     }

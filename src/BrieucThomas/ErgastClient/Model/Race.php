@@ -33,27 +33,27 @@ class Race
      *
      * @return int
      */
-    public function getSeason() : int
+    public function getSeason(): int
     {
         return $this->season;
     }
 
-    public function getRound() : int
+    public function getRound(): int
     {
         return $this->round;
     }
 
-    public function getName() : string
+    public function getName(): string
     {
         return $this->name;
     }
 
-    public function getCircuit() : Circuit
+    public function getCircuit(): Circuit
     {
         return $this->circuit;
     }
 
-    public function getDate() : \DateTime
+    public function getDate(): \DateTime
     {
         return $this->date;
     }
@@ -66,7 +66,7 @@ class Race
         return $this->time;
     }
 
-    public function getStartDate() : \DateTime
+    public function getStartDate(): \DateTime
     {
         $startDate = clone $this->date;
         $time = $this->getTime();
@@ -83,27 +83,27 @@ class Race
      *
      * @return string
      */
-    public function getUrl() : string
+    public function getUrl(): string
     {
         return $this->url;
     }
 
-    public function getQualifying() : ArrayCollection
+    public function getQualifying(): ArrayCollection
     {
         return $this->qualifying;
     }
 
-    public function getResults() : ArrayCollection
+    public function getResults(): ArrayCollection
     {
         return $this->results;
     }
 
-    public function getLaps() : ArrayCollection
+    public function getLaps(): ArrayCollection
     {
         return $this->laps;
     }
 
-    public function getPitStops() : ArrayCollection
+    public function getPitStops(): ArrayCollection
     {
         return $this->pitStops;
     }

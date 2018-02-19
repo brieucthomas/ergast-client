@@ -20,12 +20,12 @@ class Location
     private $longitude;
     private $altitude;
 
-    public function getLocality() : string
+    public function getLocality(): string
     {
         return $this->locality;
     }
 
-    public function getCountry() : string
+    public function getCountry(): string
     {
         return $this->country;
     }

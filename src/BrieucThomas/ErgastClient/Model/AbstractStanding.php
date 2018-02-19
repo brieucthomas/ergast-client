@@ -19,22 +19,22 @@ abstract class AbstractStanding
     private $points;
     private $wins;
 
-    public function getPosition() : int
+    public function getPosition(): int
     {
         return $this->position;
     }
 
-    public function getPositionText() : string
+    public function getPositionText(): string
     {
         return $this->positionText;
     }
 
-    public function getPoints() : float
+    public function getPoints(): float
     {
         return $this->points;
     }
 
-    public function getWins() : int
+    public function getWins(): int
     {
         return $this->wins;
     }
