@@ -1,8 +1,15 @@
 {
     "name": "brieucthomas/ergast-client",
+    "type": "library",
     "description": "PHP client for Ergast Developer API",
+    "keywords": [],
     "license": "MIT",
-    "type": "project",
+    "authors": [
+        {
+            "name": "Brieuc Thomas",
+            "email": "tbrieuc@gmail.com"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "BrieucThomas\\ErgastClient\\": "src/BrieucThomas/ErgastClient/"
@@ -26,7 +33,7 @@
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "2.0-dev"
+            "dev-master": "1.0-dev"
         }
     }
 }
