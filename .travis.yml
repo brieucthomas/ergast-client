@@ -1,3 +1,6 @@
+# Config file for https://travis-ci.org/
+# Validate this file here - http://lint.travis-ci.org/
+
 language: php
 
 php:
@@ -7,14 +10,10 @@ php:
 sudo: false
 
 before_install:
-  - travis_retry composer self-update
+    - travis_retry composer self-update
 
 install:
-    - travis_retry composer install --no-interaction --prefer-dist
+    - travis_retry composer install --no-interaction --no-suggest --prefer-dist
 
 script:
-    - phpunit --coverage-clover=coverage.clover
-
-after_script:
-    - wget https://scrutinizer-ci.com/ocular.phar
-    - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+    - phpunit
