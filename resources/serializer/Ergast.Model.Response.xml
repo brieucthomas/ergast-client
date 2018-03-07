@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\Response" xml-root-name="MRData">
+        <xml-namespace uri="http://ergast.com/mrd/1.4"/>
+        <property name="series" type="string" xml-attribute="true"/>
+        <property name="url" type="string" xml-attribute="true"/>
+        <property name="limit" type="integer" xml-attribute="true"/>
+        <property name="offset" type="integer" xml-attribute="true"/>
+        <property name="total" type="integer" xml-attribute="true"/>
+        <property name="driverTable" serialized-name="DriverTable" type="Ergast\Model\DriverTable"/>
+        <property name="circuitTable" serialized-name="CircuitTable" type="Ergast\Model\CircuitTable"/>
+        <property name="constructorTable" serialized-name="ConstructorTable" type="Ergast\Model\ConstructorTable"/>
+        <property name="seasonTable" serialized-name="SeasonTable" type="Ergast\Model\SeasonTable"/>
+        <property name="raceTable" serialized-name="RaceTable" type="Ergast\Model\RaceTable"/>
+        <property name="resultList" serialized-name="ResultsList" type="Ergast\Model\ResultList"/>
+        <property name="standingsTable" serialized-name="StandingsTable" type="Ergast\Model\StandingsTable"/>
+        <property name="statusTable" serialized-name="StatusTable" type="Ergast\Model\StatusTable"/>
+    </class>
+</serializer>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Time">
+        <property name="value" type="string" serialized-name="value" xml-value="true"/>
+        <property name="millis" type="integer" serialized-name="millis" xml-attribute="true"/>
+    </class>
+</serializer>

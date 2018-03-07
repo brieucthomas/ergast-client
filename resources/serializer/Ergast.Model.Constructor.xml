@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Constructor">
+        <property name="id" type="string" serialized-name="constructorId" xml-attribute="true"/>
+        <property name="name" type="string" serialized-name="Name"/>
+        <property name="nationality" type="string" serialized-name="Nationality"/>
+        <property name="url" type="string" serialized-name="url" xml-attribute="true"/>
+    </class>
+</serializer>

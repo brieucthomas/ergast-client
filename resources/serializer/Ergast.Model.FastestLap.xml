@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\FastestLap">
+        <property name="rank" type="integer" serialized-name="rank" xml-attribute="true"/>
+        <property name="lap" type="integer" serialized-name="lap" xml-attribute="true"/>
+        <property name="time" type="string" serialized-name="Time"/>
+        <property name="averageSpeed" type="Ergast\Model\Speed" serialized-name="AverageSpeed"/>
+    </class>
+</serializer>

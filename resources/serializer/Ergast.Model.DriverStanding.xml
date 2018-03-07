@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\DriverStanding">
+        <property name="driver" type="Ergast\Model\Driver" serialized-name="Driver"/>
+        <property name="constructor" type="Ergast\Model\Constructor" serialized-name="Constructor"/>
+    </class>
+</serializer>

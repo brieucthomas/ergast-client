@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Lap">
+        <xml-namespace uri="http://ergast.com/mrd/1.4"/>
+        <property name="number" type="integer" serialized-name="number" xml-attribute="true"/>
+        <property name="timing" serialized-name="Timing">
+            <type><![CDATA[array<Ergast\Model\Timing>]]></type>
+            <xml-list inline="true" entry-name="Timing"/>
+        </property>
+    </class>
+</serializer>

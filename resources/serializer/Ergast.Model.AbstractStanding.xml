@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\AbstractStanding">
+        <property name="position" type="integer" serialized-name="position" xml-attribute="true"/>
+        <property name="positionText" type="string" serialized-name="positionText" xml-attribute="true"/>
+        <property name="points" type="double" serialized-name="points" xml-attribute="true"/>
+        <property name="wins" type="integer" serialized-name="wins" xml-attribute="true"/>
+    </class>
+</serializer>

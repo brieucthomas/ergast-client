@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Speed">
+        <property name="value" type="double" serialized-name="value" xml-value="true"/>
+        <property name="units" type="string" serialized-name="units" xml-attribute="true"/>
+    </class>
+</serializer>

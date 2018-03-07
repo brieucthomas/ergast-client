@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\Driver">
+        <property name="id" serialized-name="driverId" type="string" xml-attribute="true"/>
+        <property name="permanentNumber" serialized-name="PermanentNumber" type="integer"/>
+        <property name="code" serialized-name="code" type="string" xml-attribute="true"/>
+        <property name="givenName" serialized-name="GivenName" type="string"/>
+        <property name="familyName" serialized-name="FamilyName" type="string"/>
+        <property name="dateOfBirth" serialized-name="DateOfBirth">
+            <type><![CDATA[DateTime<'Y-m-d|'>]]></type>
+        </property>
+        <property name="nationality" serialized-name="Nationality" type="string"/>
+        <property name="url" serialized-name="url" type="string" xml-attribute="true"/>
+    </class>
+</serializer>

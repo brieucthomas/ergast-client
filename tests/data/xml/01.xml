@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/schemas/mrd-1.4.xsl"?>
+<MRData xmlns="http://ergast.com/mrd/1.4" series="f1" url="http://ergast.com/api/f1/circuits/bak/results/1/drivers.xml" limit="30" offset="0" total="2">
+    <DriverTable circuitId="bak" position="1">
+        <Driver driverId="ricciardo" code="RIC" url="http://en.wikipedia.org/wiki/Daniel_Ricciardo">
+            <PermanentNumber>3</PermanentNumber>
+            <GivenName>Daniel</GivenName>
+            <FamilyName>Ricciardo</FamilyName>
+            <DateOfBirth>1989-07-01</DateOfBirth>
+            <Nationality>Australian</Nationality>
+        </Driver>
+        <Driver driverId="rosberg" code="ROS" url="http://en.wikipedia.org/wiki/Nico_Rosberg">
+            <PermanentNumber>6</PermanentNumber>
+            <GivenName>Nico</GivenName>
+            <FamilyName>Rosberg</FamilyName>
+            <DateOfBirth>1985-06-27</DateOfBirth>
+            <Nationality>German</Nationality>
+        </Driver>
+    </DriverTable>
+</MRData>

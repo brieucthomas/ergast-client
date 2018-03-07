@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\ConstructorTable">
+        <property name="constructors">
+            <type><![CDATA[array<Ergast\Model\Constructor>]]></type>
+            <xml-list inline="true" entry-name="Constructor" namespace="http://ergast.com/mrd/1.4"/>
+        </property>
+    </class>
+</serializer>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Timing">
+        <property name="driverId" type="string" serialized-name="driverId" xml-attribute="true"/>
+        <property name="lap" type="integer" serialized-name="lap" xml-attribute="true"/>
+        <property name="position" type="integer" serialized-name="position" xml-attribute="true"/>
+        <property name="time" type="string" serialized-name="time" xml-attribute="true"/>
+    </class>
+</serializer>

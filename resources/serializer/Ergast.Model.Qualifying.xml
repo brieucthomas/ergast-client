@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Qualifying">
+        <property name="driver" type="Ergast\Model\Driver" serialized-name="Driver"/>
+        <property name="constructor" type="Ergast\Model\Constructor" serialized-name="Constructor"/>
+        <property name="number" type="integer" serialized-name="number" xml-attribute="true"/>
+        <property name="position" type="integer" serialized-name="position" xml-attribute="true"/>
+        <property name="q1" type="string" serialized-name="Q1"/>
+        <property name="q2" type="string" serialized-name="Q2"/>
+        <property name="q3" type="string" serialized-name="Q3"/>
+    </class>
+</serializer>

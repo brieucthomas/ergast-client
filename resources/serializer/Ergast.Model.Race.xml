@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Race">
+        <xml-namespace uri="http://ergast.com/mrd/1.4"/>
+        <property name="season" type="integer" serialized-name="season" xml-attribute="true"/>
+        <property name="round" type="integer" serialized-name="round" xml-attribute="true"/>
+        <property name="name" type="string" serialized-name="RaceName"/>
+        <property name="circuit" type="Ergast\Model\Circuit" serialized-name="Circuit"/>
+        <property name="date" serialized-name="Date">
+            <type><![CDATA[DateTime<'Y-m-d|'>]]></type>
+        </property>
+        <property name="time" serialized-name="Time">
+            <type><![CDATA[DateTime<'H:i:sT|'>]]></type>
+        </property>
+        <property name="url" type="string" serialized-name="url" xml-attribute="true"/>
+        <property name="qualifyingList" serialized-name="QualifyingList" type="Ergast\Model\QualifyingList"/>
+        <property name="resultList" serialized-name="ResultsList" type="Ergast\Model\ResultsList"/>
+        <property name="lapsList" serialized-name="LapsList" type="Ergast\Model\LapsList"/>
+        <property name="pitStopsList" serialized-name="PitStopsList" type="Ergast\Model\PitStopsList"/>
+    </class>
+</serializer>
+

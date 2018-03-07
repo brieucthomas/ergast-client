@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Status">
+        <property name="id" type="integer" serialized-name="statusId" xml-attribute="true"/>
+        <property name="name" type="string" xml-value="true"/>
+        <property name="count" type="integer" serialized-name="count" xml-attribute="true"/>
+    </class>
+</serializer>

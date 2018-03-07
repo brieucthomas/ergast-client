@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\SeasonTable">
+        <property name="seasons">
+            <type><![CDATA[array<Ergast\Model\Season>]]></type>
+            <xml-list inline="true" entry-name="Season" namespace="http://ergast.com/mrd/1.4"/>
+        </property>
+    </class>
+</serializer>

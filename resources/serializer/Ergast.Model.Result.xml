@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Result">
+        <property name="driver" type="Ergast\Model\Driver" serialized-name="Driver"/>
+        <property name="constructor" type="Ergast\Model\Constructor" serialized-name="Constructor"/>
+        <property name="number" type="integer" serialized-name="number" xml-attribute="true"/>
+        <property name="position" type="integer" serialized-name="position" xml-attribute="true"/>
+        <property name="positionText" type="string" serialized-name="positionText" xml-attribute="true"/>
+        <property name="points" type="double" serialized-name="points" xml-attribute="true"/>
+        <property name="grid" type="integer" serialized-name="Grid"/>
+        <property name="laps" type="integer" serialized-name="Laps"/>
+        <property name="status" type="Ergast\Model\Status" serialized-name="Status"/>
+        <property name="time" type="Ergast\Model\Time" serialized-name="Time"/>
+        <property name="fastestLap" type="Ergast\Model\FastestLap" serialized-name="FastestLap"/>
+    </class>
+</serializer>
+

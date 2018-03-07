@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\Circuit">
+        <property name="id" serialized-name="circuitId" type="string" xml-attribute="true"/>
+        <property name="name" serialized-name="CircuitName" type="string"/>
+        <property name="location" serialized-name="Location">
+            <type><![CDATA[Ergast\Model\Location]]></type>
+        </property>
+        <property name="url" serialized-name="url" type="string" xml-attribute="true"/>
+    </class>
+</serializer>

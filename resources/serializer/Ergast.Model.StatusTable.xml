@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\StatusTable">
+        <property name="statuses">
+            <type><![CDATA[array<Ergast\Model\Status>]]></type>
+            <xml-list inline="true" entry-name="Status" namespace="http://ergast.com/mrd/1.4"/>
+        </property>
+    </class>
+</serializer>

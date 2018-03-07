@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<serializer>
+    <class name="Ergast\Model\LapsList">
+        <property name="laps">
+            <type><![CDATA[array<Ergast\Model\Lap>]]></type>
+            <xml-list inline="true" entry-name="Lap" namespace="http://ergast.com/mrd/1.4"/>
+        </property>
+    </class>
+</serializer>

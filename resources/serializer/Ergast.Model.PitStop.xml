@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\PitStop">
+        <property name="driverId" type="string" serialized-name="driverId" xml-attribute="true"/>
+        <property name="stop" type="integer" serialized-name="stop" xml-attribute="true"/>
+        <property name="lap" type="integer" serialized-name="lap" xml-attribute="true"/>
+        <property name="url" type="string" serialized-name="url" xml-attribute="true"/>
+        <property name="time" serialized-name="time" xml-attribute="true">
+            <type><![CDATA[DateTime<'H:i:s'>]]></type>
+        </property>
+        <property name="duration" type="double" serialized-name="duration" xml-attribute="true"/>
+    </class>
+</serializer>

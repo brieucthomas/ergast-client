@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<serializer>
+    <class name="Ergast\Model\Season">
+        <property name="year" type="integer" xml-value="true"/>
+        <property name="url" type="string" serialized-name="url" xml-attribute="true"/>
+    </class>
+</serializer>
