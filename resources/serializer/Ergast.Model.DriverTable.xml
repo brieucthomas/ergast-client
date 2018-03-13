@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<serializer>
-    <class name="Ergast\Model\DriverTable">
-        <property name="drivers">
-            <type><![CDATA[array<Ergast\Model\Driver>]]></type>
-            <xml-list inline="true" entry-name="Driver" namespace="http://ergast.com/mrd/1.4"/>
-        </property>
-    </class>
-</serializer>

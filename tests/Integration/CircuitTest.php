@@ -9,9 +9,9 @@
 
 namespace Ergast\Tests\Integration;
 
+use Doctrine\Common\Collections\Collection;
 use Ergast\Client;
 use Ergast\Model\Circuit;
-use Ergast\Model\CircuitTable;
 use Ergast\Model\Location;
 use Ergast\Model\Response;
 use Ergast\Tests\TestCase;
@@ -31,12 +31,12 @@ class CircuitTest extends TestCase
 
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/circuits/monza.xml', 'f1', 30, 0, 1);
 
-        $circuitTable = $response->getCircuitTable();
+        $circuits = $response->getCircuits();
 
-        $this->assertInstanceOf(CircuitTable::class, $circuitTable);
-        $this->assertSame(1, $circuitTable->count());
+        $this->assertInstanceOf(Collection::class, $circuits);
+        $this->assertSame(1, $circuits->count());
 
-        $circuit = $circuitTable->find('monza');
+        $circuit = $circuits->first();
 
         $this->assertInstanceOf(Circuit::class, $circuit);
         $this->assertSame('monza', $circuit->getId());

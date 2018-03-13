@@ -9,6 +9,8 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Brieuc Thomas <tbrieuc@gmail.com>
  */
@@ -21,10 +23,10 @@ class Race
     private $date;
     private $time;
     private $url;
-    private $qualifyingList;
-    private $resultList;
-    private $lapsList;
-    private $pitStopsList;
+    private $qualifying;
+    private $results;
+    private $laps;
+    private $pitStops;
 
     public function getSeason(): int
     {
@@ -73,23 +75,23 @@ class Race
         return $this->url;
     }
 
-    public function getQualifyingList(): QualifyingList
+    public function getQualifying(): Collection
     {
-        return $this->qualifyingList;
+        return $this->qualifying;
     }
 
-    public function getResultList(): ResultsList
+    public function getResults(): Collection
     {
-        return $this->resultList;
+        return $this->results;
     }
 
-    public function getLapsList(): LapsList
+    public function getLaps(): Collection
     {
-        return $this->lapsList;
+        return $this->laps;
     }
 
-    public function getPitStopsList(): PitStopsList
+    public function getPitStops(): Collection
     {
-        return $this->pitStopsList;
+        return $this->pitStops;
     }
 }

@@ -9,31 +9,22 @@
 
 namespace Ergast\Tests;
 
+use Doctrine\Common\Collections\Collection;
 use Ergast\Model\Circuit;
-use Ergast\Model\CircuitTable;
 use Ergast\Model\Constructor;
 use Ergast\Model\ConstructorStanding;
-use Ergast\Model\ConstructorTable;
 use Ergast\Model\Driver;
 use Ergast\Model\DriverStanding;
-use Ergast\Model\DriverTable;
 use Ergast\Model\Lap;
-use Ergast\Model\LapsList;
 use Ergast\Model\Location;
 use Ergast\Model\PitStop;
-use Ergast\Model\PitStopsList;
 use Ergast\Model\Qualifying;
-use Ergast\Model\QualifyingList;
 use Ergast\Model\Race;
-use Ergast\Model\RaceTable;
 use Ergast\Model\Response;
 use Ergast\Model\Result;
-use Ergast\Model\ResultsList;
-use Ergast\Model\SeasonTable;
-use Ergast\Model\StandingsList;
-use Ergast\Model\StandingsTable;
+use Ergast\Model\Season;
+use Ergast\Model\Standings;
 use Ergast\Model\Status;
-use Ergast\Model\StatusTable;
 use Ergast\Model\Timing;
 
 class ClientTest extends TestCase
@@ -46,13 +37,22 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/seasons', 'f1', 30, 0, 3);
 
-        $seasons = $response->getSeasonTable();
+        $seasons = $response->getSeasons();
 
-        $this->assertInstanceOf(SeasonTable::class, $seasons);
+        $this->assertInstanceOf(Collection::class, $seasons);
+        $this->assertCount(3, $seasons);
 
-        $this->assertSeason($seasons->find(2003), 2003, 'http://en.wikipedia.org/wiki/2003_Formula_One_season');
-        $this->assertSeason($seasons->find(2004), 2004, 'http://en.wikipedia.org/wiki/2004_Formula_One_season');
-        $this->assertSeason($seasons->find(2005), 2005, 'http://en.wikipedia.org/wiki/2005_Formula_One_season');
+        $data = $seasons->map(function (Season $season) {
+            return $season->getYear().' '.$season->getUrl();
+        });
+
+        $exceptedData = [
+            '2003 http://en.wikipedia.org/wiki/2003_Formula_One_season',
+            '2004 http://en.wikipedia.org/wiki/2004_Formula_One_season',
+            '2005 http://en.wikipedia.org/wiki/2005_Formula_One_season',
+        ];
+
+        $this->assertSame($exceptedData, $data->toArray());
     }
 
     public function testGetRaces()
@@ -63,16 +63,13 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2012/races', 'f1', 30, 0, 2);
 
-        $races = $response->getRaceTable();
+        $races = $response->getRaces();
 
-        $this->assertInstanceOf(RaceTable::class, $races);
+        $this->assertInstanceOf(Collection::class, $races);
         $this->assertContainsOnly(Race::class, $races);
         $this->assertCount(2, $races);
 
-        $iterator = $races->getIterator();
-        $iterator->rewind();
-
-        $race = $iterator->current();
+        $race = $races->first();
         $this->assertSame(2012, $race->getSeason());
         $this->assertSame(1, $race->getRound());
         $this->assertSame('Australian Grand Prix', $race->getName());
@@ -82,8 +79,7 @@ class ClientTest extends TestCase
         $this->assertSame('http://en.wikipedia.org/wiki/2012_Australian_Grand_Prix', $race->getUrl());
         $this->assertSame('albert_park', $race->getCircuit()->getId());
 
-        $iterator->next();
-        $race = $iterator->current();
+        $race = $races->next();
         $this->assertSame(2012, $race->getSeason());
         $this->assertSame(2, $race->getRound());
         $this->assertSame('Brazilian Grand Prix', $race->getName());
@@ -102,9 +98,9 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2008/5/results', 'f1', 30, 0, 1);
 
-        $races = $response->getRaceTable();
+        $races = $response->getRaces();
 
-        $this->assertInstanceOf(RaceTable::class, $races);
+        $this->assertInstanceOf(Collection::class, $races);
         $this->assertContainsOnly(Race::class, $races);
         $this->assertCount(1, $races);
 
@@ -115,9 +111,9 @@ class ClientTest extends TestCase
         $this->assertSame(5, $race->getRound());
         $this->assertSame('http://en.wikipedia.org/wiki/2008_Turkish_Grand_Prix', $race->getUrl());
 
-        $results = $race->getResultList();
+        $results = $race->getResults();
 
-        $this->assertInstanceOf(ResultsList::class, $results);
+        $this->assertInstanceOf(Collection::class, $results);
         $this->assertContainsOnly(Result::class, $results);
         $this->assertCount(1, $results);
 
@@ -149,9 +145,9 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2008/5/qualifying', 'f1', 30, 0, 1);
 
-        $races = $response->getRaceTable();
+        $races = $response->getRaces();
 
-        $this->assertInstanceOf(RaceTable::class, $races);
+        $this->assertInstanceOf(Collection::class, $races);
         $this->assertContainsOnly(Race::class, $races);
         $this->assertCount(1, $races);
 
@@ -161,9 +157,9 @@ class ClientTest extends TestCase
         $this->assertSame(2008, $race->getSeason());
         $this->assertSame(5, $race->getRound());
 
-        $qualifyingList = $race->getQualifyingList();
+        $qualifyingList = $race->getQualifying();
 
-        $this->assertInstanceOf(QualifyingList::class, $qualifyingList);
+        $this->assertInstanceOf(Collection::class, $qualifyingList);
         $this->assertContainsOnly(Qualifying::class, $qualifyingList);
         $this->assertCount(1, $qualifyingList);
 
@@ -186,15 +182,15 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/drivers', 'f1', 30, 0, 3);
 
-        $drivers = $response->getDriverTable();
+        $drivers = $response->getDrivers();
 
-        $this->assertInstanceOf(DriverTable::class, $drivers);
+        $this->assertInstanceOf(Collection::class, $drivers);
         $this->assertContainsOnly(Driver::class, $drivers);
         $this->assertCount(3, $drivers);
 
-        $this->assertIsAyrtonSenna($drivers->all()[0]);
-        $this->assertIsRayReed($drivers->all()[1]);
-        $this->assertIsLewisHamilton($drivers->all()[2]);
+        $this->assertIsAyrtonSenna($drivers->get(0));
+        $this->assertIsRayReed($drivers->get(1));
+        $this->assertIsLewisHamilton($drivers->get(2));
     }
 
     public function testGetConstructors()
@@ -205,14 +201,14 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/constructors', 'f1', 30, 0, 2);
 
-        $constructors = $response->getConstructorTable();
+        $constructors = $response->getConstructors();
 
-        $this->assertInstanceOf(ConstructorTable::class, $constructors);
+        $this->assertInstanceOf(Collection::class, $constructors);
         $this->assertContainsOnly(Constructor::class, $constructors);
         $this->assertCount(2, $constructors);
 
         /** @var Constructor $constructor */
-        $constructor = $constructors->all()[0];
+        $constructor = $constructors->first();
 
         $this->assertSame('arrows', $constructor->getId());
         $this->assertSame('Arrows', $constructor->getName());
@@ -220,7 +216,7 @@ class ClientTest extends TestCase
         $this->assertSame('http://en.wikipedia.org/wiki/Arrows', $constructor->getUrl());
 
         /** @var Constructor $constructor */
-        $constructor = $constructors->all()[1];
+        $constructor = $constructors->next();
 
         $this->assertSame('benetton', $constructor->getId());
         $this->assertSame('Benetton', $constructor->getName());
@@ -236,13 +232,13 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2008/5/driverstandings', 'f1', 30, 0, 2);
 
-        $standingsTable = $response->getStandingsTable();
+        $standings = $response->getStandings();
 
-        $this->assertInstanceOf(StandingsTable::class, $standingsTable);
-        $this->assertContainsOnly(StandingsList::class, $standingsTable);
-        $this->assertCount(1, $standingsTable);
+        $this->assertInstanceOf(Collection::class, $standings);
+        $this->assertContainsOnly(Standings::class, $standings);
+        $this->assertCount(1, $standings);
 
-        $standingsList = $standingsTable->first();
+        $standingsList = $standings->first();
 
         $this->assertSame(2008, $standingsList->getSeason());
         $this->assertSame(5, $standingsList->getRound());
@@ -277,13 +273,13 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2008/5/constructorstandings', 'f1', 30, 0, 2);
 
-        $standingsTable = $response->getStandingsTable();
+        $standings = $response->getStandings();
 
-        $this->assertInstanceOf(StandingsTable::class, $standingsTable);
-        $this->assertContainsOnly(StandingsList::class, $standingsTable);
-        $this->assertCount(1, $standingsTable);
+        $this->assertInstanceOf(Collection::class, $standings);
+        $this->assertContainsOnly(Standings::class, $standings);
+        $this->assertCount(1, $standings);
 
-        $standingsList = $standingsTable->first();
+        $standingsList = $standings->first();
 
         $this->assertSame(2008, $standingsList->getSeason());
         $this->assertSame(5, $standingsList->getRound());
@@ -320,13 +316,13 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/driverstandings/1', 'f1', 30, 0, 2);
 
-        $standingsTable = $response->getStandingsTable();
+        $standings = $response->getStandings();
 
-        $this->assertInstanceOf(StandingsTable::class, $standingsTable);
-        $this->assertContainsOnly(StandingsList::class, $standingsTable);
-        $this->assertCount(2, $standingsTable);
+        $this->assertInstanceOf(Collection::class, $standings);
+        $this->assertContainsOnly(Standings::class, $standings);
+        $this->assertCount(2, $standings);
 
-        $standingsList = $standingsTable->first();
+        $standingsList = $standings->first();
 
         $this->assertSame(2007, $standingsList->getSeason());
         $this->assertSame(17, $standingsList->getRound());
@@ -346,7 +342,7 @@ class ClientTest extends TestCase
         $this->assertSame(1, $driverStanding->getPosition());
         $this->assertSame('1', $driverStanding->getPositionText());
 
-        $standingsList = $standingsTable->all()[1];
+        $standingsList = $standings->next();
 
         $this->assertSame(2008, $standingsList->getSeason());
         $this->assertSame(18, $standingsList->getRound());
@@ -375,14 +371,14 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/circuits', 'f1', 30, 0, 2);
 
-        $this->assertInstanceOf(CircuitTable::class, $response->getCircuitTable());
-        $this->assertContainsOnly(Circuit::class, $response->getCircuitTable());
-        $this->assertCount(2, $response->getCircuitTable());
+        $circuits = $response->getCircuits();
 
-        $circuits = $response->getCircuitTable()->all();
+        $this->assertInstanceOf(Collection::class, $circuits);
+        $this->assertContainsOnly(Circuit::class, $circuits);
+        $this->assertCount(2, $circuits);
 
         /** @var Circuit $circuit */
-        $circuit = $circuits[0];
+        $circuit = $circuits->first();
 
         $this->assertSame('monza', $circuit->getId());
         $this->assertSame('Autodromo Nazionale di Monza', $circuit->getName());
@@ -394,7 +390,7 @@ class ClientTest extends TestCase
         $this->assertSame(9.28111, $circuit->getLocation()->getLongitude());
 
         /** @var Circuit $circuit */
-        $circuit = $circuits[1];
+        $circuit = $circuits->next();
 
         $this->assertSame('zolder', $circuit->getId());
         $this->assertSame('Zolder', $circuit->getName());
@@ -414,28 +410,28 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/status', 'f1', 30, 0, 3);
 
-        $this->assertInstanceOf(StatusTable::class, $response->getStatusTable());
-        $this->assertContainsOnly(Status::class, $response->getStatusTable());
-        $this->assertCount(3, $response->getStatusTable());
+        $statuses = $response->getStatus();
 
-        $statuses = $response->getStatusTable()->all();
+        $this->assertInstanceOf(Collection::class, $statuses);
+        $this->assertContainsOnly(Status::class, $statuses);
+        $this->assertCount(3, $statuses);
 
         /** @var Status $status */
-        $status = $statuses[0];
+        $status = $statuses->first();
 
         $this->assertSame(1, $status->getId());
         $this->assertSame('Finished', $status->getName());
         $this->assertSame(5655, $status->getCount());
 
         /** @var Status $status */
-        $status = $statuses[1];
+        $status = $statuses->next();
 
         $this->assertSame(2, $status->getId());
         $this->assertSame('Disqualified', $status->getName());
         $this->assertSame(137, $status->getCount());
 
         /** @var Status $status */
-        $status = $statuses[2];
+        $status = $statuses->next();
 
         $this->assertSame(3, $status->getId());
         $this->assertSame('Accident', $status->getName());
@@ -450,21 +446,21 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2011/5/laps', 'f1', 30, 0, 2);
 
-        $race = $response->getRaceTable()->first();
+        $race = $response->getRaces()->first();
 
         $this->assertInstanceOf(Race::class, $race);
         $this->assertSame(2011, $race->getSeason());
         $this->assertSame(5, $race->getRound());
         $this->assertSame('http://en.wikipedia.org/wiki/2011_Spanish_Grand_Prix', $race->getUrl());
 
-        $this->assertInstanceOf(LapsList::class, $race->getLapsList());
-        $this->assertContainsOnly(Lap::class, $race->getLapsList());
-        $this->assertCount(2, $race->getLapsList());
+        $laps = $race->getLaps();
 
-        $lapsList = $race->getLapsList()->all();
+        $this->assertInstanceOf(Collection::class, $laps);
+        $this->assertContainsOnly(Lap::class, $laps);
+        $this->assertCount(2, $laps);
 
         /** @var Lap $lap */
-        $lap = $lapsList[0];
+        $lap = $laps->first();
 
         $this->assertSame(1, $lap->getNumber());
         $this->assertContainsOnly(Timing::class, $lap->getTiming());
@@ -487,7 +483,7 @@ class ClientTest extends TestCase
         $this->assertSame('1:35.274', $timing->getTime());
 
         /** @var Lap $lap */
-        $lap = $lapsList[1];
+        $lap = $laps->next();
 
         $this->assertSame(2, $lap->getNumber());
         $this->assertContainsOnly(Timing::class, $lap->getTiming());
@@ -518,21 +514,22 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Response::class, $response);
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/2011/5/pitstops', 'f1', 30, 0, 2);
 
-        $race = $response->getRaceTable()->first();
+        /** @var Race $race */
+        $race = $response->getRaces()->first();
 
         $this->assertInstanceOf(Race::class, $race);
         $this->assertSame(2011, $race->getSeason());
         $this->assertSame(5, $race->getRound());
         $this->assertSame('http://en.wikipedia.org/wiki/2011_Spanish_Grand_Prix', $race->getUrl());
 
-        $this->assertInstanceOf(PitStopsList::class, $race->getPitStopsList());
-        $this->assertContainsOnly(PitStop::class, $race->getPitStopsList());
-        $this->assertCount(2, $race->getPitStopsList());
+        $pitStops = $race->getPitStops();
 
-        $pitStops = $race->getPitStopsList()->all();
+        $this->assertInstanceOf(Collection::class, $pitStops);
+        $this->assertContainsOnly(PitStop::class, $pitStops);
+        $this->assertCount(2, $pitStops);
 
         /** @var PitStop $pitStop */
-        $pitStop = $pitStops[0];
+        $pitStop = $pitStops->first();
 
         $this->assertSame('kobayashi', $pitStop->getDriverId());
         $this->assertSame(24.871, $pitStop->getDuration());
@@ -541,7 +538,7 @@ class ClientTest extends TestCase
         $this->assertSame(1, $pitStop->getLap());
 
         /** @var PitStop $pitStop */
-        $pitStop = $pitStops[1];
+        $pitStop = $pitStops->next();
 
         $this->assertSame('perez', $pitStop->getDriverId());
         $this->assertSame(23.592, $pitStop->getDuration());
@@ -559,12 +556,12 @@ class ClientTest extends TestCase
 
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/circuits/bak/results/1/drivers.xml', 'f1', 30, 0, 2);
 
-        $driverTable = $response->getDriverTable();
+        $drivers = $response->getDrivers();
 
-        $this->assertInstanceOf(DriverTable::class, $driverTable);
-        $this->assertSame(2, $driverTable->count());
+        $this->assertInstanceOf(Collection::class, $drivers);
+        $this->assertCount(2, $drivers);
 
-        $this->assertIsDanielRicciardo($driverTable->find('ricciardo'));
-        $this->assertIsNicoRosberg($driverTable->find('rosberg'));
+        //$this->assertIsDanielRicciardo($drivers->find('ricciardo'));
+        //$this->assertIsNicoRosberg($drivers->find('rosberg'));
     }
 }

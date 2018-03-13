@@ -9,6 +9,8 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Brieuc Thomas <tbrieuc@gmail.com>
  */
@@ -19,13 +21,13 @@ class Response implements ResponseInterface
     private $limit;
     private $offset;
     private $total;
-    private $driverTable;
-    private $circuitTable;
-    private $constructorTable;
-    private $seasonTable;
-    private $raceTable;
-    private $standingsTable;
-    private $statusTable;
+    private $drivers;
+    private $circuits;
+    private $constructors;
+    private $seasons;
+    private $races;
+    private $standings;
+    private $status;
 
     public function getSeries(): string
     {
@@ -52,38 +54,38 @@ class Response implements ResponseInterface
         return $this->total;
     }
 
-    public function getDriverTable(): DriverTable
+    public function getDrivers(): ?Collection
     {
-        return $this->driverTable;
+        return $this->drivers;
     }
 
-    public function getCircuitTable(): ?CircuitTable
+    public function getCircuits(): ?Collection
     {
-        return $this->circuitTable;
+        return $this->circuits;
     }
 
-    public function getConstructorTable(): ?ConstructorTable
+    public function getConstructors(): ?Collection
     {
-        return $this->constructorTable;
+        return $this->constructors;
     }
 
-    public function getSeasonTable(): ?SeasonTable
+    public function getSeasons(): ?Collection
     {
-        return $this->seasonTable;
+        return $this->seasons;
     }
 
-    public function getRaceTable(): ?RaceTable
+    public function getRaces(): ?Collection
     {
-        return $this->raceTable;
+        return $this->races;
     }
 
-    public function getStandingsTable(): StandingsTable
+    public function getStandings(): ?Collection
     {
-        return $this->standingsTable;
+        return $this->standings;
     }
 
-    public function getStatusTable(): StatusTable
+    public function getStatus(): ?Collection
     {
-        return $this->statusTable;
+        return $this->status;
     }
 }

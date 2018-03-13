@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<serializer>
-    <class name="Ergast\Model\RaceTable">
-        <property name="races">
-            <type><![CDATA[array<Ergast\Model\Race>]]></type>
-            <xml-list inline="true" entry-name="Race" namespace="http://ergast.com/mrd/1.4"/>
-        </property>
-    </class>
-</serializer>

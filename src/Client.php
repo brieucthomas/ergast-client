@@ -44,6 +44,7 @@ class Client implements ClientInterface
         $serializerBuilder = $serializerBuilder ?? SerializerBuilder::create();
         $serializerBuilder
             ->addMetadataDir(dirname(__DIR__).'/resources/serializer')
+            ->addDefaultHandlers()
             ->configureHandlers(function (HandlerRegistry $registry) {
                 $registry->registerSubscribingHandler(new EmptyDateTimeHandler());
             })

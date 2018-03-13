@@ -12,7 +12,7 @@ namespace Ergast\Model;
 /**
  * @author Brieuc Thomas <brieuc.thomas@orange.com>
  */
-class StandingsList
+class Standings
 {
     private $season;
     private $round;

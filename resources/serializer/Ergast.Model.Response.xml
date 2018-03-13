@@ -7,13 +7,37 @@
         <property name="limit" type="integer" xml-attribute="true"/>
         <property name="offset" type="integer" xml-attribute="true"/>
         <property name="total" type="integer" xml-attribute="true"/>
-        <property name="driverTable" serialized-name="DriverTable" type="Ergast\Model\DriverTable"/>
-        <property name="circuitTable" serialized-name="CircuitTable" type="Ergast\Model\CircuitTable"/>
-        <property name="constructorTable" serialized-name="ConstructorTable" type="Ergast\Model\ConstructorTable"/>
-        <property name="seasonTable" serialized-name="SeasonTable" type="Ergast\Model\SeasonTable"/>
-        <property name="raceTable" serialized-name="RaceTable" type="Ergast\Model\RaceTable"/>
-        <property name="resultList" serialized-name="ResultsList" type="Ergast\Model\ResultList"/>
-        <property name="standingsTable" serialized-name="StandingsTable" type="Ergast\Model\StandingsTable"/>
-        <property name="statusTable" serialized-name="StatusTable" type="Ergast\Model\StatusTable"/>
+        <property name="drivers" serialized-name="DriverTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Driver>]]></type>
+            <xml-list entry-name="Driver"/>
+        </property>
+        <property name="circuits" serialized-name="CircuitTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Circuit>]]></type>
+            <xml-list entry-name="Circuit"/>
+        </property>
+        <property name="constructors" serialized-name="ConstructorTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Constructor>]]></type>
+            <xml-list entry-name="Constructor"/>
+        </property>
+        <property name="seasons" serialized-name="SeasonTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Season>]]></type>
+            <xml-list entry-name="Season"/>
+        </property>
+        <property name="races" serialized-name="RaceTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Race>]]></type>
+            <xml-list entry-name="Race"/>
+        </property>
+        <property name="results" serialized-name="ResultsList">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Result>]]></type>
+            <xml-list entry-name="Result"/>
+        </property>
+        <property name="standings" serialized-name="StandingsTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Standings>]]></type>
+            <xml-list entry-name="StandingsList"/>
+        </property>
+        <property name="status" serialized-name="StatusTable">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Status>]]></type>
+            <xml-list entry-name="Status"/>
+        </property>
     </class>
 </serializer>

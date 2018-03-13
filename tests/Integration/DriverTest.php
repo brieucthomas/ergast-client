@@ -9,8 +9,8 @@
 
 namespace Ergast\Tests\Integration;
 
+use Doctrine\Common\Collections\Collection;
 use Ergast\Client;
-use Ergast\Model\DriverTable;
 use Ergast\Model\Response;
 use Ergast\Tests\TestCase;
 
@@ -29,12 +29,12 @@ class DriverTest extends TestCase
 
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/circuits/bak/results/1/drivers.xml', 'f1', 30, 0, 2);
 
-        $driverTable = $response->getDriverTable();
+        $drivers = $response->getDrivers();
 
-        $this->assertInstanceOf(DriverTable::class, $driverTable);
-        $this->assertSame(2, $driverTable->count());
+        $this->assertInstanceOf(Collection::class, $drivers);
+        $this->assertSame(2, $drivers->count());
 
-        $this->assertIsDanielRicciardo($driverTable->find('ricciardo'));
-        $this->assertIsNicoRosberg($driverTable->find('rosberg'));
+        $this->assertIsDanielRicciardo($drivers->get(0));
+        $this->assertIsNicoRosberg($drivers->get(1));
     }
 }

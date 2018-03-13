@@ -13,10 +13,22 @@
             <type><![CDATA[DateTime<'H:i:sT|'>]]></type>
         </property>
         <property name="url" type="string" serialized-name="url" xml-attribute="true"/>
-        <property name="qualifyingList" serialized-name="QualifyingList" type="Ergast\Model\QualifyingList"/>
-        <property name="resultList" serialized-name="ResultsList" type="Ergast\Model\ResultsList"/>
-        <property name="lapsList" serialized-name="LapsList" type="Ergast\Model\LapsList"/>
-        <property name="pitStopsList" serialized-name="PitStopsList" type="Ergast\Model\PitStopsList"/>
+        <property name="qualifying" serialized-name="QualifyingList">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Qualifying>]]></type>
+            <xml-list entry-name="QualifyingResult"/>
+        </property>
+        <property name="results" serialized-name="ResultsList">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Result>]]></type>
+            <xml-list entry-name="Result"/>
+        </property>
+        <property name="laps" serialized-name="LapsList">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Lap>]]></type>
+            <xml-list entry-name="Lap"/>
+        </property>
+        <property name="pitStops" serialized-name="PitStopsList">
+            <type><![CDATA[ArrayCollection<Ergast\Model\PitStop>]]></type>
+            <xml-list entry-name="PitStop"/>
+        </property>
     </class>
 </serializer>
 

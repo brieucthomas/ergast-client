@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <serializer>
-    <class name="Ergast\Model\StandingsList">
+    <class name="Ergast\Model\Standings">
         <xml-namespace uri="http://ergast.com/mrd/1.4"/>
         <property name="season" type="integer" serialized-name="season" xml-attribute="true"/>
         <property name="round" type="integer" serialized-name="round" xml-attribute="true"/>

@@ -9,9 +9,9 @@
 
 namespace Ergast\Tests\Integration;
 
+use Doctrine\Common\Collections\Collection;
 use Ergast\Client;
 use Ergast\Model\Constructor;
-use Ergast\Model\ConstructorTable;
 use Ergast\Model\Response;
 use Ergast\Tests\TestCase;
 
@@ -30,12 +30,12 @@ class ConstructorTest extends TestCase
 
         $this->assertResponseMetadata($response, 'http://ergast.com/api/f1/constructors/benetton.xml', 'f1', 30, 0, 1);
 
-        $constructorTable = $response->getConstructorTable();
+        $constructors = $response->getConstructors();
 
-        $this->assertInstanceOf(ConstructorTable::class, $constructorTable);
-        $this->assertSame(1, $constructorTable->count());
+        $this->assertInstanceOf(Collection::class, $constructors);
+        $this->assertSame(1, $constructors->count());
 
-        $constructor = $constructorTable->find('benetton');
+        $constructor = $constructors->first();
 
         $this->assertInstanceOf(Constructor::class, $constructor);
         $this->assertSame('benetton', $constructor->getId());
