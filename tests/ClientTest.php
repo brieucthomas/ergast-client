@@ -561,7 +561,7 @@ class ClientTest extends TestCase
         $this->assertInstanceOf(Collection::class, $drivers);
         $this->assertCount(2, $drivers);
 
-        //$this->assertIsDanielRicciardo($drivers->find('ricciardo'));
-        //$this->assertIsNicoRosberg($drivers->find('rosberg'));
+        $this->assertIsDanielRicciardo($drivers->get(0));
+        $this->assertIsNicoRosberg($drivers->get(1));
     }
 }
