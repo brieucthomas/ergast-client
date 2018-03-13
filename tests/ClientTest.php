@@ -85,7 +85,7 @@ class ClientTest extends TestCase
         $this->assertSame('Brazilian Grand Prix', $race->getName());
         $this->assertSame('2012-11-25', $race->getDate()->format('Y-m-d'));
         $this->assertNull($race->getTime());
-        $this->assertSame('2012-11-25T00:00:00+0000', $race->getStartDate()->format(\DateTime::ISO8601));
+        $this->assertSame('2012-11-25T00:00:00+0000', $race->getStartDate()->format(\DateTime::ATOM));
         $this->assertSame('http://en.wikipedia.org/wiki/2012_Brazilian_Grand_Prix', $race->getUrl());
         $this->assertSame('interlagos', $race->getCircuit()->getId());
     }
@@ -117,6 +117,7 @@ class ClientTest extends TestCase
         $this->assertContainsOnly(Result::class, $results);
         $this->assertCount(1, $results);
 
+        /** @var Result $result */
         $result = $results->first();
 
         $this->assertSame('massa', $result->getDriver()->getId());
@@ -163,6 +164,7 @@ class ClientTest extends TestCase
         $this->assertContainsOnly(Qualifying::class, $qualifyingList);
         $this->assertCount(1, $qualifyingList);
 
+        /** @var Qualifying $qualifying */
         $qualifying = $qualifyingList->first();
 
         $this->assertSame('massa', $qualifying->getDriver()->getId());

@@ -46,7 +46,7 @@ class Result
         return $this->position;
     }
 
-    public function getTime()
+    public function getTime(): Time
     {
         return $this->time;
     }
@@ -76,7 +76,7 @@ class Result
         return $this->grid;
     }
 
-    public function getFastestLap()
+    public function getFastestLap(): FastestLap
     {
         return $this->fastestLap;
     }
