@@ -75,21 +75,33 @@ class Race
         return $this->url;
     }
 
+    /**
+     * @return Collection|Qualifying[]
+     */
     public function getQualifying(): Collection
     {
         return $this->qualifying;
     }
 
+    /**
+     * @return Collection|Result[]
+     */
     public function getResults(): Collection
     {
         return $this->results;
     }
 
+    /**
+     * @return Collection|Lap[]
+     */
     public function getLaps(): Collection
     {
         return $this->laps;
     }
 
+    /**
+     * @return Collection|PitStop[]
+     */
     public function getPitStops(): Collection
     {
         return $this->pitStops;

@@ -54,36 +54,57 @@ class Response implements ResponseInterface
         return $this->total;
     }
 
+    /**
+     * @return Collection|Driver[]
+     */
     public function getDrivers(): ?Collection
     {
         return $this->drivers;
     }
 
+    /**
+     * @return Collection|Circuit[]
+     */
     public function getCircuits(): ?Collection
     {
         return $this->circuits;
     }
 
+    /**
+     * @return Collection|Constructor[]
+     */
     public function getConstructors(): ?Collection
     {
         return $this->constructors;
     }
 
+    /**
+     * @return Collection|Season[]
+     */
     public function getSeasons(): ?Collection
     {
         return $this->seasons;
     }
 
+    /**
+     * @return Collection|Race[]
+     */
     public function getRaces(): ?Collection
     {
         return $this->races;
     }
 
+    /**
+     * @return Collection|Standings[]
+     */
     public function getStandings(): ?Collection
     {
         return $this->standings;
     }
 
+    /**
+     * @return Collection|Status[]
+     */
     public function getStatus(): ?Collection
     {
         return $this->status;
