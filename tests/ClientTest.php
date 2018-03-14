@@ -79,13 +79,14 @@ class ClientTest extends TestCase
         $this->assertSame('http://en.wikipedia.org/wiki/2012_Australian_Grand_Prix', $race->getUrl());
         $this->assertSame('albert_park', $race->getCircuit()->getId());
 
+        /** @var Race $race */
         $race = $races->next();
         $this->assertSame(2012, $race->getSeason());
         $this->assertSame(2, $race->getRound());
         $this->assertSame('Brazilian Grand Prix', $race->getName());
         $this->assertSame('2012-11-25', $race->getDate()->format('Y-m-d'));
         $this->assertNull($race->getTime());
-        $this->assertSame('2012-11-25T00:00:00+0000', $race->getStartDate()->format(\DateTime::ATOM));
+        $this->assertSame('2012-11-25T00:00:00+00:00', $race->getStartDate()->format(\DateTime::ATOM));
         $this->assertSame('http://en.wikipedia.org/wiki/2012_Brazilian_Grand_Prix', $race->getUrl());
         $this->assertSame('interlagos', $race->getCircuit()->getId());
     }
