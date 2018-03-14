@@ -9,6 +9,8 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Brieuc Thomas <brieuc.thomas@orange.com>
  */
@@ -29,12 +31,18 @@ class Standings
         return $this->round;
     }
 
-    public function getDriverStandings(): array
+    /**
+     * @return Collection|DriverStanding[]
+     */
+    public function getDriverStandings(): Collection
     {
         return $this->driverStandings;
     }
 
-    public function getConstructorStandings(): array
+    /**
+     * @return Collection|ConstructorStanding[]
+     */
+    public function getConstructorStandings(): Collection
     {
         return $this->constructorStandings;
     }

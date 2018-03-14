@@ -5,11 +5,11 @@
         <property name="season" type="integer" serialized-name="season" xml-attribute="true"/>
         <property name="round" type="integer" serialized-name="round" xml-attribute="true"/>
         <property name="driverStandings">
-            <type><![CDATA[array<Ergast\Model\DriverStanding>]]></type>
+            <type><![CDATA[ArrayCollection<Ergast\Model\DriverStanding>]]></type>
             <xml-list inline="true" entry-name="DriverStanding" />
         </property>
         <property name="constructorStandings">
-            <type><![CDATA[array<Ergast\Model\ConstructorStanding>]]></type>
+            <type><![CDATA[ArrayCollection<Ergast\Model\ConstructorStanding>]]></type>
             <xml-list inline="true" entry-name="ConstructorStanding" />
         </property>
     </class>
