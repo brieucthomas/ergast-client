@@ -9,6 +9,7 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -20,6 +21,12 @@ class Standings
     private $round;
     private $driverStandings;
     private $constructorStandings;
+
+    public function __construct()
+    {
+        $this->driverStandings = new ArrayCollection();
+        $this->constructorStandings = new ArrayCollection();
+    }
 
     public function getSeason(): int
     {

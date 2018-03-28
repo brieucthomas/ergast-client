@@ -9,6 +9,7 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -27,6 +28,14 @@ class Race
     private $results;
     private $laps;
     private $pitStops;
+
+    public function __construct()
+    {
+        $this->qualifying = new ArrayCollection();
+        $this->results = new ArrayCollection();
+        $this->laps = new ArrayCollection();
+        $this->pitStops = new ArrayCollection();
+    }
 
     public function getSeason(): int
     {
@@ -60,7 +69,7 @@ class Race
 
     public function getStartDate(): \DateTime
     {
-        $startDate = clone $this->date;
+        $startDate = clone $this->getDate();
         $time = $this->getTime();
 
         if ($time instanceof \DateTime) {

@@ -9,6 +9,7 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
 /**
@@ -28,6 +29,18 @@ class Response implements ResponseInterface
     private $races;
     private $standings;
     private $status;
+
+    public function __construct()
+    {
+        $this->constructors = new ArrayCollection();
+        $this->drivers = new ArrayCollection();
+        $this->circuits = new ArrayCollection();
+        $this->constructors = new ArrayCollection();
+        $this->seasons = new ArrayCollection();
+        $this->races = new ArrayCollection();
+        $this->standings = new ArrayCollection();
+        $this->status = new ArrayCollection();
+    }
 
     public function getSeries(): string
     {
@@ -57,7 +70,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Driver[]
      */
-    public function getDrivers(): ?Collection
+    public function getDrivers(): Collection
     {
         return $this->drivers;
     }
@@ -65,7 +78,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Circuit[]
      */
-    public function getCircuits(): ?Collection
+    public function getCircuits(): Collection
     {
         return $this->circuits;
     }
@@ -73,7 +86,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Constructor[]
      */
-    public function getConstructors(): ?Collection
+    public function getConstructors(): Collection
     {
         return $this->constructors;
     }
@@ -81,7 +94,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Season[]
      */
-    public function getSeasons(): ?Collection
+    public function getSeasons(): Collection
     {
         return $this->seasons;
     }
@@ -89,7 +102,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Race[]
      */
-    public function getRaces(): ?Collection
+    public function getRaces(): Collection
     {
         return $this->races;
     }
@@ -97,7 +110,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Standings[]
      */
-    public function getStandings(): ?Collection
+    public function getStandings(): Collection
     {
         return $this->standings;
     }
@@ -105,7 +118,7 @@ class Response implements ResponseInterface
     /**
      * @return Collection|Status[]
      */
-    public function getStatus(): ?Collection
+    public function getStatus(): Collection
     {
         return $this->status;
     }
