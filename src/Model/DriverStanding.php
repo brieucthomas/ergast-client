@@ -9,21 +9,29 @@
 
 namespace Ergast\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+
 /**
  * @author Brieuc Thomas <brieuc.thomas@orange.com>
  */
 class DriverStanding extends AbstractStanding
 {
     private $driver;
-    private $constructor;
+    private $constructors;
+
+    public function __construct()
+    {
+        $this->constructors = new ArrayCollection();
+    }
 
     public function getDriver(): Driver
     {
         return $this->driver;
     }
 
-    public function getConstructor(): Constructor
+    public function getConstructors(): Collection
     {
-        return $this->constructor;
+        return $this->constructors;
     }
 }

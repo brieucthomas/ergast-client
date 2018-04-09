@@ -2,6 +2,9 @@
 <serializer>
     <class name="Ergast\Model\DriverStanding">
         <property name="driver" type="Ergast\Model\Driver" serialized-name="Driver"/>
-        <property name="constructor" type="Ergast\Model\Constructor" serialized-name="Constructor"/>
+        <property name="constructors" serialized-name="Constructor">
+            <type><![CDATA[ArrayCollection<Ergast\Model\Constructor>]]></type>
+            <xml-list entry-name="Constructor" inline="true"/>
+        </property>
     </class>
 </serializer>

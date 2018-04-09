@@ -339,7 +339,8 @@ class ClientTest extends TestCase
         $driverStanding = $driverStandings[0];
 
         $this->assertSame('raikkonen', $driverStanding->getDriver()->getId());
-        $this->assertSame('ferrari', $driverStanding->getConstructor()->getId());
+        $this->assertCount(1, $driverStanding->getConstructors());
+        $this->assertSame('ferrari', $driverStanding->getConstructors()->first()->getId());
         $this->assertSame(110.0, $driverStanding->getPoints());
         $this->assertSame(6, $driverStanding->getWins());
         $this->assertSame(1, $driverStanding->getPosition());
@@ -359,7 +360,9 @@ class ClientTest extends TestCase
         $driverStanding = $driverStandings[0];
 
         $this->assertSame('hamilton', $driverStanding->getDriver()->getId());
-        $this->assertSame('mclaren', $driverStanding->getConstructor()->getId());
+        $this->assertCount(2, $driverStanding->getConstructors());
+        $this->assertSame('mclaren', $driverStanding->getConstructors()->first()->getId());
+        $this->assertSame('ferrari', $driverStanding->getConstructors()->next()->getId());
         $this->assertSame(98.0, $driverStanding->getPoints());
         $this->assertSame(5, $driverStanding->getWins());
         $this->assertSame(1, $driverStanding->getPosition());
