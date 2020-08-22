@@ -6,10 +6,11 @@
                   serialized-name="Driver"
         >
         </property>
-        <property name="constructor"
-                  type="BrieucThomas\ErgastClient\Model\Constructor"
+        <property name="constructors"
+                  type="ArrayCollection&lt;BrieucThomas\ErgastClient\Model\Constructor&gt;"
                   serialized-name="Constructor"
         >
+        <xml-list inline="true" entry-name="Constructor" />
         </property>
     </class>
 </serializer>
