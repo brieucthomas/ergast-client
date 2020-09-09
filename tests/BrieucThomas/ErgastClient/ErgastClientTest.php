@@ -297,6 +297,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('BrieucThomas\ErgastClient\Model\DriverStanding', $driverStandings);
         $this->assertSame('raikkonen', $driverStandings->getDriver()->getId());
         $this->assertSame('ferrari', $driverStandings->getConstructors()->first()->getId());
+        $this->assertSame('ferrari', $driverStandings->getConstructor()->getId());
         $this->assertSame(35.0, $driverStandings->getPoints());
         $this->assertSame(2, $driverStandings->getWins());
         $this->assertSame(1, $driverStandings->getPosition());

@@ -7,9 +7,10 @@
  * file that was distributed with this source code.
  */
 
-namespace BrieucThomas\ErgastClient\Model;
+namespace Ergast\Model;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 
 /**
  * @author Brieuc Thomas <brieuc.thomas@orange.com>
@@ -18,6 +19,11 @@ class DriverStanding extends AbstractStanding
 {
     private $driver;
     private $constructors;
+
+    public function __construct()
+    {
+        $this->constructors = new ArrayCollection();
+    }
 
     public function getDriver(): Driver
     {
@@ -29,7 +35,7 @@ class DriverStanding extends AbstractStanding
         return ($this->constructors instanceof ArrayCollection) ? $this->constructors->first() : null;
     }
 
-    public function getConstructors(): ArrayCollection
+    public function getConstructors(): Collection
     {
         return $this->constructors;
     }
