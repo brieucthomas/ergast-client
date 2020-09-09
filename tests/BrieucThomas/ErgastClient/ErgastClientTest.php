@@ -296,6 +296,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $driverStandings = $standings->getDriverStandings()->first();
         $this->assertInstanceOf('BrieucThomas\ErgastClient\Model\DriverStanding', $driverStandings);
         $this->assertSame('raikkonen', $driverStandings->getDriver()->getId());
+        $this->assertSame('ferrari', $driverStandings->getConstructors()->first()->getId());
         $this->assertSame('ferrari', $driverStandings->getConstructor()->getId());
         $this->assertSame(35.0, $driverStandings->getPoints());
         $this->assertSame(2, $driverStandings->getWins());
@@ -305,7 +306,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $driverStanding = $standings->getDriverStandings()->next();
         $this->assertInstanceOf('BrieucThomas\ErgastClient\Model\DriverStanding', $driverStandings);
         $this->assertSame('massa', $driverStanding->getDriver()->getId());
-        $this->assertSame('ferrari', $driverStanding->getConstructor()->getId());
+        $this->assertSame('ferrari', $driverStanding->getConstructors()->first()->getId());
         $this->assertSame(28.0, $driverStanding->getPoints());
         $this->assertSame(2, $driverStanding->getWins());
         $this->assertSame(2, $driverStanding->getPosition());
@@ -371,7 +372,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $driverStanding = $standing->getDriverStandings()->first();
         $this->assertInstanceOf('BrieucThomas\ErgastClient\Model\DriverStanding', $driverStanding);
         $this->assertSame('raikkonen', $driverStanding->getDriver()->getId());
-        $this->assertSame('ferrari', $driverStanding->getConstructor()->getId());
+        $this->assertSame('ferrari', $driverStanding->getConstructors()->first()->getId());
         $this->assertSame(110.0, $driverStanding->getPoints());
         $this->assertSame(6, $driverStanding->getWins());
         $this->assertSame(1, $driverStanding->getPosition());
@@ -385,7 +386,7 @@ class ErgastClientTest extends \PHPUnit_Framework_TestCase
         $driverStanding = $standing->getDriverStandings()->first();
         $this->assertInstanceOf('BrieucThomas\ErgastClient\Model\DriverStanding', $driverStanding);
         $this->assertSame('hamilton', $driverStanding->getDriver()->getId());
-        $this->assertSame('mclaren', $driverStanding->getConstructor()->getId());
+        $this->assertSame('mclaren', $driverStanding->getConstructors()->first()->getId());
         $this->assertSame(98.0, $driverStanding->getPoints());
         $this->assertSame(5, $driverStanding->getWins());
         $this->assertSame(1, $driverStanding->getPosition());

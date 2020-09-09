@@ -9,13 +9,15 @@
 
 namespace BrieucThomas\ErgastClient\Model;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 /**
  * @author Brieuc Thomas <brieuc.thomas@orange.com>
  */
 class DriverStanding extends AbstractStanding
 {
     private $driver;
-    private $constructor;
+    private $constructors;
 
     public function getDriver(): Driver
     {
@@ -24,6 +26,11 @@ class DriverStanding extends AbstractStanding
 
     public function getConstructor(): Constructor
     {
-        return $this->constructor;
+        return ($this->constructors instanceof ArrayCollection) ? $this->constructors->first() : null;
+    }
+
+    public function getConstructors(): ArrayCollection
+    {
+        return $this->constructors;
     }
 }
